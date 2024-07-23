@@ -2,5 +2,5 @@
 
 set -ex
 
-echo "local=/path/to/file"
+echo "local=build/crickets.txt"
 echo "remote=https://path/to/remote/file"
