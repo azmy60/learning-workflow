@@ -26,6 +26,11 @@ jobs:
     steps:
       - run: |
           echo "Local path is $LOCAL_PATH"
-          echo "Remote path is $REMOTE_PATH" 
+          echo "Remote path is $REMOTE_PATH"
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ${{ env.LOCAL_PATH }}
           
     
