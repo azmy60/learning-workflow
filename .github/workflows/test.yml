@@ -3,6 +3,14 @@ on:
   push:
 
 jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create an empty release
+        uses: softprops/actions-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          draft: True
   build:
     runs-on: ubuntu-latest
     steps:
@@ -22,5 +30,5 @@ jobs:
           REMOTE_PATH: ${{ steps.build.outputs.remote }}
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ needs.create_release.outputs.tag-name }}
           files: ${{ env.LOCAL_PATH }}
-          draft: True
