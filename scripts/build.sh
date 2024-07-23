@@ -11,5 +11,5 @@ The crickets didn't see me though
 Well that's fine
 EOF
 
-echo "local=build/crickets.txt"
+echo "local=${GITHUB_WORKFLOW}/build/crickets.txt"
 echo "remote=https://path/to/remote/file"
