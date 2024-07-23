@@ -20,8 +20,12 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     needs: build
+    env:
+      LOCAL_PATH: ${{ needs.build.outputs.local-path }}
+      REMOTE_PATH: ${{ needs.build.outputs.remote-path }}
     steps:
       - run: |
-          echo "Local path is ${{ needs.build.outputs.local-path }}"
-          echo "Remote path is ${{ needs.build.outputs.remote-path }}" 
+          echo "Local path is $LOCAL_PATH"
+          echo "Remote path is $REMOTE_PATH" 
+          
     
