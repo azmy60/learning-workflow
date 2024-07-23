@@ -16,6 +16,8 @@ jobs:
         run: |
           OUTPUT=$(./scripts/build.sh)
           echo "$OUTPUT" >> "$GITHUB_OUTPUT"
+      - name: Test
+        run: cat ${{ steps.build.outputs.local }}
         
   upload:
     runs-on: ubuntu-latest
