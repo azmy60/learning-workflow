@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Build
         id: build
-        run: | 
-          echo "local=path/to/file" >> "$GITHUB_OUTPUT"
-          echo "remote=https://remote/path" >> "$GITHUB_OUTPUT"
+        run: |
+          OUTPUT=$(./scripts/build.sh)
+          echo "$OUTPUT" >> "$GITHUB_OUTPUT"
         
   upload:
     runs-on: ubuntu-latest
