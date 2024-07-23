@@ -26,6 +26,8 @@ jobs:
       LOCAL_PATH: ${{ needs.build.outputs.local-path }}
       REMOTE_PATH: ${{ needs.build.outputs.remote-path }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - run: |
           echo "Local path is $LOCAL_PATH"
           echo "Remote path is $REMOTE_PATH"
